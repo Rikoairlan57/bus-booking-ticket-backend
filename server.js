@@ -3,5 +3,8 @@ const app = express();
 const port = process.env.PORT || 4000;
 require("dotenv").config();
 const db = require("./config/db");
+app.use(express.json());
+const usersRoute = require("./routes/usersRoute");
 
+app.use("/api/users", usersRoute);
 app.listen(port, () => console.log(`Server run on port ${port}`));
