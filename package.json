@@ -2,10 +2,11 @@
   "name": "bus-booking-ticket-backend.",
   "version": "1.0.0",
   "description": "this a api bus booking ticket",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "server": "nodemon server.js"
   },
   "author": "Riko airlan ramadhan",
   "license": "ISC",
