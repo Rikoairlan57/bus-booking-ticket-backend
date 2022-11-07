@@ -2,8 +2,6 @@ const router = require("express").Router();
 const Bus = require("../models/busModel");
 const authMiddleware = require("../middlewares/authMiddleware");
 
-// add-bus
-
 router.post("/add-bus", authMiddleware, async (req, res) => {
   try {
     const existingBus = await Bus.findOne({ number: req.body.number });
