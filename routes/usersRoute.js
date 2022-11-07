@@ -4,8 +4,6 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const authMiddleware = require("../middlewares/authMiddleware");
 
-// user register
-
 router.post("/register", async (req, res) => {
   try {
     const existingUser = await User.findOne({ email: req.body.email });
@@ -33,8 +31,6 @@ router.post("/register", async (req, res) => {
     });
   }
 });
-
-// user login
 
 router.post("/login", async (req, res) => {
   try {
@@ -77,8 +73,6 @@ router.post("/login", async (req, res) => {
     });
   }
 });
-
-// get user by id
 
 router.post("/get-user-by-id", authMiddleware, async (req, res) => {
   try {
