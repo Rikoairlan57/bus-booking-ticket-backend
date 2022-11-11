@@ -9,7 +9,6 @@ router.post("/book-seat", authMiddleware, async (req, res) => {
   try {
     const newBooking = new Booking({
       ...req.body,
-      transactionId: "1232",
       user: req.body.userId,
     });
     await newBooking.save();
@@ -40,7 +39,7 @@ router.post("/make-payment", authMiddleware, async (req, res) => {
     const payment = await stripe.charges.create(
       {
         amount: amount,
-        currency: "inr",
+        currency: "usd",
         customer: customer.id,
         receipt_email: token.email,
       },
