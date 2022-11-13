@@ -43,6 +43,14 @@ router.post("/login", async (req, res) => {
       });
     }
 
+    if (userExists.isBlocked) {
+      return res.send({
+        message: "Your account is blocked , please contact admin",
+        success: false,
+        data: null,
+      });
+    }
+
     const passwordMatch = await bcrypt.compare(
       req.body.password,
       userExists.password
@@ -107,8 +115,6 @@ router.post("/get-all-users", authMiddleware, async (req, res) => {
     });
   }
 });
-
-// update user
 
 router.post("/update-user-permissions", authMiddleware, async (req, res) => {
   try {
